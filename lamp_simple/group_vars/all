@@ -1,6 +1,4 @@
+## -------------- global定义playbook全局变量，变量作用域为所有主机 ------------##
 ---
-# Variables listed here are applicable to all host groups
-
 httpd_port: 80
 ntpserver: 192.168.1.2
-repository: https://github.com/bennojoy/mywebapp.git
