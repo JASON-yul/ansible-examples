@@ -26,5 +26,5 @@ Once done, you can check the results by browsing to http://localhost/index.php.
 You should see a simple test page and a list of databases retrieved from the
 database server.
 
-ansible-playbook -i hosts site.yml -t web
+        ansible-playbook -i hosts site.yml -t web
 注：-t 指向要执行的模块
