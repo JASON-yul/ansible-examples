@@ -1,5 +1,5 @@
 ---
-# Handler to handle DB tier notifications
+# db数据库处理程序，通过db模块安装
 
 - name: restart mysql
   service:
