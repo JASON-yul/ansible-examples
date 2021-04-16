@@ -1,23 +1,34 @@
+#playbook入口文件
+#Site Configuration
+#此站点中部署了整个应用程序堆栈
 ---
-# This playbook deploys the whole application stack in this site.
-
-- name: apply common configuration to all nodes
-  hosts: all
-  remote_user: root
-
+#将通用配置应用于所有主机
+- hosts: all
   roles:
-    - common
+  - common
 
-- name: configure and deploy the webservers and application code
-  hosts: webservers
-  remote_user: root
-
+- hosts: dbservers
   roles:
-    - web
-
-- name: deploy MySQL and configure the databases
-  hosts: dbservers
-  remote_user: root
-
+  - db                             #引用roles里的db角色
+  tags:                            #通过-t 命令传递对应的参数，并指定playbook入口
+  - db
+#webservers需要部署两个环境，因此配置了两个角色
+- hosts: webservers
   roles:
-    - db
+  - base-apache
+  - web
+  tags:
+  - web
+#配置部署负载均衡器
+- hosts: lbservers
+  roles:
+  - haproxy
+  tags:
+  - lb
+#配置部署监控节点
+- hosts: monitoring
+  roles:
+  - base-apache
+  - nagios
+  tags:
+  - monitoring
