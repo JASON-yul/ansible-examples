@@ -2,3 +2,18 @@
 ---
 httpd_port: 80
 ntpserver: 192.168.1.2
+
+remotepath: /mnt/
+localpath : /home/playbook/
+
+## -------------- ntpserver --------------##
+ntpserver:
+  http:
+    listen: 80
+##端口监听
+port:
+  http:
+    ntpserver: "{{ ntpserver['http']['listen'] }}"
+##健康检查
+health:
+  ntpserver: /stats
