@@ -1,7 +1,17 @@
-[webservers]
-web3
+# 以下是各个模块需要部署的机器列表，请根据实际情况进行调整
 
-[dbservers]
+[test]
+10.28.2.165 ansible_ssh_user=root	ansible_ssh_pass='huawei@123'
+
+[webservers]
+web1
 web2
 
+[dbservers]
+db1
 
+[lbservers]
+lb1
+
+[monitoring]
+nagios
