@@ -1,0 +1,4 @@
+---
+# file:roles/{{ module }}/vars/main.yml,定义模块变量为web
+
+module: web
