@@ -10,10 +10,12 @@ localpath : /home/playbook/
 ntpserver:
   http:
     listen: 80
+    
 ##端口监听
 port:
   http:
     ntpserver: "{{ ntpserver['http']['listen'] }}"
+    
 ##健康检查
 health:
   ntpserver: /stats
