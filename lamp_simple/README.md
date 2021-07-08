@@ -28,3 +28,6 @@ database server.
 
         ansible-playbook -i hosts site.yml -t web
         注：-t 指向要执行的模块
+
+
+案例实操：
