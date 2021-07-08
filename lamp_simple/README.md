@@ -30,4 +30,4 @@ database server.
         注：-t 指向要执行的模块
 
 
-案例实操：
+案例实操：ansible实践操作整合
