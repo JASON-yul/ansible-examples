@@ -1,0 +1,13 @@
+[all]
+10.120.92.241 ansible_ssh_user=root ansible_ssh_pass='Huawei@GY'
+
+[docker]
+10.120.92.241
+
+#定义docker组的ssh登录账号密码
+[docker:vars]                
+ansible_ssh_user=root ansible_ssh_pass='Huawei@GY'
+
+#定义组ansible。docker组内包含docker
+[ansibel:children]
+dcoker
