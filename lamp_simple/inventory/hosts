@@ -11,3 +11,15 @@ ansible_ssh_user=root ansible_ssh_pass='Huawei@GY'
 #定义组ansible。docker组内包含docker
 [ansibel:children]
 dcoker
+
+#定义速冻登录
+[sudo]
+ansible_sudo=root  ansible_sudo_pass='12345'
+
+#定义私钥登录
+[private]
+ansible_ssh_provate_key_file=/root/key
+
+#定义hosts执行的python路径
+[python]
+ansible_python_interpreter=/usr/bin/python2.8
