@@ -12,6 +12,10 @@ ansible_ssh_user=root ansible_ssh_pass='Huawei@GY'
 [ansibel:children]
 dcoker
 
+
+
+
+#-------以下不常用-------
 #定义速冻登录
 [sudo]
 ansible_sudo=root  ansible_sudo_pass='12345'
