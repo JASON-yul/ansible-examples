@@ -1,4 +1,5 @@
-详见
+详见 lamp_simple
+
 Ansible Examples
 ----------------
 
