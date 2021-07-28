@@ -30,8 +30,8 @@ database server.
         注：-t 指向要执行的模块
 
 
-注：写完*.yaml文件后可以用下面命令检查语法是否正确。例如
-1.ansible-playbook nginx.yaml --syntax-check
+注：写完*.yaml文件后可以用下面命令检查语法是否正确。
+例如1.ansible-playbook nginx.yaml --syntax-check
 
 2.使用--list-task、--list-hosts查看所有task和host
 
