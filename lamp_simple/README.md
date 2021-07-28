@@ -29,3 +29,13 @@ database server.
         ansible-playbook -i hosts site.yml -t web
         注：-t 指向要执行的模块
 
+
+注：写完*.yaml文件后可以用下面命令检查语法是否正确。例如
+1.ansible-playbook nginx.yaml --syntax-check
+
+2.使用--list-task、--list-hosts查看所有task和host
+
+3.只运行task里的某个任务
+ansible-playbook -i hosts nginx.yaml -f 3 --start-at-task='yum nginx'   (taskr任务名)
+
+4.
