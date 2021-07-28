@@ -10,6 +10,7 @@
 - name: Create the repository for EPEL
   copy: src=epel.repo dest=/etc/yum.repos.d/epel.repo
         owner=root group=root mode=0644                      #可不写
+  notify: update yum                                         #如果同步后文件的MD5值有变化，会触发update yum的handler
 
 - name: Create the GPG key for EPEL
   copy: src=RPM-GPG-KEY-EPEL-6 dest=/etc/pki/rpm-gpg
