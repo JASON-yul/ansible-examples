@@ -9,6 +9,7 @@
 
 - name: Create the repository for EPEL
   copy: src=epel.repo dest=/etc/yum.repos.d/epel.repo
+        owner=root group=root mode=0644                      #可不写
 
 - name: Create the GPG key for EPEL
   copy: src=RPM-GPG-KEY-EPEL-6 dest=/etc/pki/rpm-gpg
@@ -33,6 +34,7 @@
 #当状态或模块发生变化时，将通知处理程序（handlers）处理，即执行handlers内配置文件，对应字段name： restart ntp
   notify: restart ntp
 
+#确保软件是否正常运行
 - name: Start the ntp service
   service: name=ntpd state=started enabled=yes
   tags: ntp
