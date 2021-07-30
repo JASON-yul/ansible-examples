@@ -15,7 +15,7 @@
 - name: Create the GPG key for EPEL
   copy: src=RPM-GPG-KEY-EPEL-6 dest=/etc/pki/rpm-gpg
 
-- name: install some useful nagios plugins
+- name: install some useful nagios plugins     #{字典格式}with_items的值是python list数据结构，可以理解为多个task循环读取list里面的值。key的默认名称为item。
   yum: name={{ item }} state=present
   with_items:
    - nagios-nrpe
