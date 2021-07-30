@@ -62,3 +62,16 @@
   notify: restart nagios
 
 
+- name: debug loops
+ #     debug: msg=" name=-----> {{ item.key }}   value -----> {{ item.value }}"
+  #    yum: name={{ item }} state=present
+  #    with_items:
+  #      - nginx 
+  #      - ntp
+      shell: hostname
+      register: host
+  #    until: host.stdout.startswith("pri")              #判断host输出结果是否以‘pri’开头，是则结束，如果不是重复执行5次，每次间隔3秒
+ #     retries: 5
+ #     delay: 3
+    - name: echo
+      debug: msg="{{ host.stdout }} "
