@@ -36,6 +36,6 @@ database server.
 2.使用--list-task、--list-hosts查看所有task和host
 
 3.只运行task里的某个任务
-ansible-playbook -i hosts nginx.yaml -f 3 --start-at-task='yum nginx'   (taskr任务名)
+ansible-playbook -i hosts nginx.yaml -f 3 --start-at-task='yum nginx'   (task任务名)
 
 4.
