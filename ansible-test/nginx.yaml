@@ -11,3 +11,5 @@
   handlers:
   - name: ReStart nginx service
     service: name=nginx state=restarted
+
+#ansible-playbook nginx.yaml --syntax-check     监测nginx.yaml文件书写是否正确
