@@ -14,3 +14,5 @@
 
 #ansible-playbook nginx.yaml --syntax-check     检测nginx.yaml文件书写是否正确
 #ansible-playbook nginx.yaml --list-hosts       检测nginx.yaml文件host表中有哪些机器
+
+注：后续想改变nginx配置文件。只需改变（本机）src=/etc/nginx/nginx.conf文件即可
