@@ -12,4 +12,5 @@
   - name: ReStart nginx service
     service: name=nginx state=restarted
 
-#ansible-playbook nginx.yaml --syntax-check     监测nginx.yaml文件书写是否正确
+#ansible-playbook nginx.yaml --syntax-check     检测nginx.yaml文件书写是否正确
+#ansible-playbook nginx.yaml --list-hosts       检测nginx.yaml文件host表中有哪些机器
