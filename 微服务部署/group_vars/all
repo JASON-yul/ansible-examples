@@ -1,0 +1,39 @@
+#一、定义环境变量
+## -------------- global ------------##
+
+# set PPATH
+servicepath: /mnt/
+
+# deploy config
+deploy_group: root
+deploy_gid: 0
+deploy_user: root
+deploy_uid: 0
+
+# "all" means all modules
+compile:
+  - all
+# - excluded
+#二、定义服务监听端口变量
+## -------------- gateway1 --------------##
+gateway1:
+  http:
+    listen: 8000
+
+## -------------- gateway2 --------------##
+gateway2:
+  http:
+    listen: 8000
+    
+#三、端口监听
+port:
+  http:
+    gateway1: "{{ gateway1['http']['listen'] }}"
+port:
+  http:
+    gateway2: "{{ gateway2['http']['listen'] }}"
+    
+#四、健康检查
+health:
+  gateway1: /stats
+  gateway2: /stats
