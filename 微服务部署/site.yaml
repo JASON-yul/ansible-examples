@@ -1,0 +1,22 @@
+---
+# Site Configuration
+# ==================
+- hosts: gateway1
+  serial: 1
+  max_fail_percentage: 0
+  user: root
+  roles:
+    - common
+    - gateway1
+  tags:
+    - gateway1
+    
+- hosts: gateway2
+  serial: 1
+  max_fail_percentage: 0
+  user: root
+  roles:
+    - common
+    - gateway2
+  tags:
+    - gateway2
