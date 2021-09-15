@@ -1,0 +1,45 @@
+#所有变量都可以通过group_vars内查找
+---
+# file: roles/{{ module }}/tasks/main.yml
+
+- name: create {{ module }} dir
+  file: 
+    path={{ remotepath }}/{{ module }}/
+    owner={{ deploy_user }}
+    group={{ deploy_group }}
+    mode=0755 
+    state=directory
+
+- name: update {{ module }} boot scripts
+  copy:
+    src="{{ localpath }}/playbook-{{ appS }}/scripts/bootloader/spring4{{ module }}"
+    dest="/etc/init.d/"
+    owner={{ deploy_user }}
+    group={{ deploy_group }}
+    mode=0755
+
+- name: load  spring4{{ module }} into SysService
+  command: chkconfig --add spring4{{ module }}
+
+- name: update {{ module }}-service-1.0-SNAPSHOT.jar
+  copy:
+    src="{{ servicepath }}/{{ module }}-service-1.0-SNAPSHOT.jar"
+    dest="{{ remotepath }}/{{ module }}/"
+    owner={{ deploy_user }}
+    group={{ deploy_group }}
+    mode=0644
+#  notify:
+#    - restart {{ module }}
+#    - wait {{ module }} alive
+#    - check {{ module }} status
+    
+- name: restart {{ module }}
+  shell: "/etc/init.d/spring4{{ module }} restart"
+  ignore_errors: yes
+  
+- name: wait {{ module }} alive
+  wait_for: port={{ port['http'][module] }} delay=5 timeout=120
+
+- name: check {{ module }} status
+  shell: "/etc/init.d/spring4{{ module }} status|grep ok"
+
