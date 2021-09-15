@@ -1,0 +1,11 @@
+---
+#
+- name: restart {{ module }}
+  shell: "/etc/init.d/spring4{{ module }} restart"
+  ignore_errors: yes
+
+- name: wait {{ module }} alive
+  wait_for: port={{ port['http'][module] }} delay=5 timeout=120
+
+- name: check {{ module }} status
+  shell: "/etc/init.d/spring4{{ module }} status|grep ok"
