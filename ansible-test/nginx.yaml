@@ -1,9 +1,14 @@
-
+#表示文件是yaml文件
 ---
+#all表示所有主机，组名
 - hosts: all
+#所有tasks集合
   tasks:
+#定义使用模块及相关命令
   - name: install nginx
     apt: name=nginx state=present
+#validate用于nginx的验证命令，
+#notify用于测试同步的nginx.conf是否发生变化，如果发生变化，会触发handlers下的模块
   - name: copy nginx.conf
     template: src=/etc/nginx/nginx.conf dest=/etc/nginx/nginx.conf owner=root group=root mode=0644 validate='nginx -t -c %s'
     notify:
