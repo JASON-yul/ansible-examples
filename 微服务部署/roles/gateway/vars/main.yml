@@ -1,4 +1,4 @@
 ---
 # file:roles/{{ module }}/vars/main.yml
-
+#设置playbook引用的变量
 module: gateway
