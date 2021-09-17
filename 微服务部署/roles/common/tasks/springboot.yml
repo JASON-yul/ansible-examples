@@ -28,11 +28,12 @@
     owner={{ deploy_user }}
     group={{ deploy_group }}
     mode=0644
+
 #  notify:
 #    - restart {{ module }}
 #    - wait {{ module }} alive
 #    - check {{ module }} status
-    
+#如果省略下面部署，将其放在handlers模块内，则上面notify启用（意思是自动检查cp的远程jar包是否被更改，如果更改则触发handlers内的模块）    
 - name: restart {{ module }}
   shell: "/etc/init.d/spring4{{ module }} restart"
   ignore_errors: yes
