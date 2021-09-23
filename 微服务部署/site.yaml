@@ -1,6 +1,6 @@
 ---
 # Site Configuration
-# ==================
+# ==================下面定义了两个角色，common和gateway1，tags指定实际执行的角色
 - hosts: gateway1
   serial: 1
   max_fail_percentage: 0
